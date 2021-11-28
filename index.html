@@ -7,22 +7,28 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
     body {
         font-family: 'Montserrat', sans-serif;
+        font-size: 3vw;
     }
     h1 {
         width: 100%;    
-        font-size: 2rem;
+        font-size: 10vw;
         display: inline-block;
         text-align: center;
+        margin: 1%;
+        background-color: #FECD03;
+        color:rgb(253, 255, 212);
+        border-radius: 10px;
     }
     h2 {
-        width: 100%;    
-        font-size:1.2rem;
+        width: 100%;
+        margin: 2%;   
+        font-size:5vw;
         display: inline-block;
         text-align: center;
     }
     h3 {
         width: 100%;    
-        font-size: 1rem;
+        font-size: 3vw;
         display: inline-block;
         text-align: center;
     }
@@ -36,6 +42,7 @@
         width: 100%;
         margin: auto;
         position: relative;
+        font-size: 3vw;
     }
     th {
             background: rgb(175, 255, 129);
@@ -230,11 +237,11 @@
                 })
                 .join(''))
             const listaIncontri = girone.incontri
-                .map(i => html('div', html('span', i.vincente, 'evid') + '-' + i.perdente + ' : ' + i.giochiVincente + '-' + i.giochiPerdente, 'border-bottom: solid #828282 1px'))
-                .join('<br>')
+                .map(i => html('div', html('span', i.vincente, 'evid') + '-' + i.perdente + ' : ' + i.giochiVincente + '-' + i.giochiPerdente))
+                .join('')
             return titolo + classificaSottotitolo + classificaGirone + incontriSottotitolo + listaIncontri
         })
-        .join('<br><br><div style="display: inline-block"><hr></div><br><br><br>')
+        .join('<div style="display: inline-block"><hr></div>')
 
         const titolononeHTML = html('h1', 'Torneo Sociale T. C. Cingoli 2021')
         document.getElementById("gironi").innerHTML = titolononeHTML  + gironiHTML
