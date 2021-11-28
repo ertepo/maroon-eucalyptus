@@ -7,7 +7,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
     body {
         font-family: 'Montserrat', sans-serif;
-        font-size: 3vw;
+        font-size: 2vh;
     }
     h1 {
         width: 100%;    
@@ -21,13 +21,13 @@
     h2 {
         width: 100%;
         margin: 2%;   
-        font-size:5vw;
+        font-size: 4vh;
         display: inline-block;
         text-align: center;
     }
     h3 {
         width: 100%;    
-        font-size: 3vw;
+        font-size: 3vh;
         display: inline-block;
         text-align: center;
     }
@@ -137,7 +137,7 @@
         new Girone("GIRONE 2: Sabato Pomeriggio", [
             new Partita(FEDERICIG, 6, BRUNORI, 0),
             new Partita(FEDERICIG, 6, BUSSOLOTTO, 0),
-            new Partita(BRUNORI, 5, BUSSOLOTTO, 6)
+            new Partita(BRUNORI, 5, BUSSOLOTTO, 7)
         ]),
 
         new Girone("GIRONE 3: Domenica Mattina", [
@@ -243,7 +243,7 @@
                 .join('')
             return titolo + classificaSottotitolo + classificaGirone + incontriSottotitolo + listaIncontri
         })
-        .join('<div style="display: inline-block"><hr></div>')
+        .join('<div style="display: inline-block"></div>')
 
         const titolononeHTML = html('h1', 'Torneo Sociale T. C. Cingoli 2021')
         document.getElementById("gironi").innerHTML = titolononeHTML  + gironiHTML
