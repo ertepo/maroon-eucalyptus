@@ -1,0 +1,316 @@
+<body>
+    <div id="gironi">
+    
+    </div>
+    </body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+    
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2vh;
+        }
+    
+        h1 {
+            width: 100%;
+            font-size: 10vw;
+            display: block;
+            text-align: center;
+            background-color: #FECD03;
+            color: rgb(253, 255, 212);
+            border-radius: 10px;
+        }
+    
+        h2:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 10px;
+            top: 100%;
+            left: 0;
+            border-radius: 5px;
+            background: #000000;
+            transition: .2s;
+        }
+    
+        h2 {
+            border-radius: 50%;
+            position: relative;
+            transform: translateX(50%);
+            width: 50%;
+            margin: 2%;
+            font-size: 4vh;
+            display: inline-block;
+            text-align: center;
+        }
+    
+        h3 {
+            width: 100%;
+            font-size: 3vh;
+            display: inline-block;
+            text-align: center;
+        }
+    
+        table {
+            border-collapse: collapse;
+            background: rgb(249, 255, 168);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            margin: auto;
+            position: relative;
+            font-size: 2vh;
+        }
+    
+        th {
+            background: #8096FF;
+            font-weight: bold;
+        }
+    
+        .alter tr:nth-child(even) {
+            background-color: #ffecb4;
+        }
+    
+        .alter tr:nth-child(odd) {
+            background-color: #fdf2d1;
+        }
+    
+        tr {
+            border: none;
+        }
+    
+        td,
+        th {
+            text-align: center;
+            padding: 2%;
+        }
+    
+        .evid {
+            background: rgb(175, 255, 129);
+            font-weight: bold;
+        }
+    
+        .primo {
+            font-weight: bold;
+            color: rgb(0, 0, 0)
+        }
+    
+        .secondo {
+            font-weight: bold;
+            color: rgb(43, 43, 43)
+        }
+    
+        .lartri {
+            color: rgb(68, 68, 68)
+        }
+    
+        span,
+        div {
+            width: 100%;
+        }
+    
+        .spaziatore {
+            padding-top: 7vh;
+        }
+    </style>
+    <script>
+        const CARDELLA = "Cardella"
+        const ROSSETTI = "Rossetti"
+        const INFURNA = "Infurna"
+        const VIRGILI = "Virgili"
+        const GAGLIARDINI = "Gagliardini"
+        const FEDERICIG = "Federici G"
+        const BUSSOLOTTO = "Bussolotto"
+        const BRUNORI = "Brunori"
+        const ONCINI = "Oncini"
+        const FEDERICIC = "Federici C"
+        const STRAMAZZOTTI = "Stramazzotti"
+        const TOSI = "Tosi"
+        const FEDERICIS = "Fedrici S"
+        const MANCINI = "Mancini"
+        const ILARIMAU = "Ilari Maurizio"
+        const CATENA = "Catena"
+        const ILARIMAR = "Ilari Marco"
+        const CORINALDI = "Corinaldi"
+        const INTRAVAIA = "Intravaia"
+        const THEBOSS = "Scattolini"
+    
+        
+        const isRitirato = [CORINALDI, STRAMAZZOTTI]
+    
+        class Partita {
+            constructor(vincente, giochiVincente, perdente, giochiPerdente) {
+                if (giochiPerdente < 0 || giochiPerdente > 7 || giochiVincente < 0 || giochiVincente > 7) {
+                    throw new Error("incontro senza senso: " + vincente + ", " + perdente)
+                }
+                this.vincente = vincente
+                this.perdente = perdente
+                this.giochiVincente = giochiVincente
+                this.giochiPerdente = giochiPerdente
+            }
+        }
+    
+        class Girone {
+            constructor(nome, incontri) {
+                this.nome = nome
+                this.incontri = incontri
+            }
+        }
+    
+        class RisultatoGiocatore {
+            constructor(giocatore, incontri, nIncontriVinti, giochiVinti, giochiGiocati, coefficienteClassifica) {
+                this.giocatore = giocatore
+                this.incontri = incontri
+                this.nIncontriVinti = nIncontriVinti
+                this.giochiVinti = giochiVinti
+                this.giochiGiocati = giochiGiocati
+                this.coefficienteClassifica = coefficienteClassifica
+            }
+        }
+    
+        const gironi = [
+            new Girone("GIRONE 1", [
+                new Partita(GAGLIARDINI, 6, ROSSETTI, 0),
+                new Partita(CARDELLA, 6, VIRGILI, 1),
+                new Partita(CARDELLA, 6, INFURNA, 0),
+                new Partita(VIRGILI, 6, INFURNA, 2),
+                new Partita(VIRGILI, 6, GAGLIARDINI, 2),
+                new Partita(GAGLIARDINI, 6, INFURNA, 0),
+                new Partita(CARDELLA, 6, GAGLIARDINI, 2),
+                new Partita(INFURNA, 6, ROSSETTI, 0),
+                new Partita(ROSSETTI, 6, CARDELLA, 3),
+                new Partita(VIRGILI, 6, ROSSETTI, 0)
+            ]),
+    
+            new Girone("GIRONE 2", [
+                new Partita(FEDERICIG, 6, BRUNORI, 0),
+                new Partita(FEDERICIG, 6, BUSSOLOTTO, 0),
+                new Partita(BUSSOLOTTO, 7, BRUNORI, 5)
+            ]),
+    
+            new Girone("GIRONE 3", [
+                new Partita(FEDERICIC, 6, ONCINI, 3),
+                new Partita(STRAMAZZOTTI, 6, ONCINI, 3),
+                new Partita(FEDERICIC, 6, STRAMAZZOTTI, 3),
+                new Partita(FEDERICIC, 6, TOSI, 2),
+                new Partita(STRAMAZZOTTI, 7, TOSI, 6),
+                new Partita(ONCINI, 6, TOSI, 0)
+            ]),
+            new Girone("GIRONE 4", [
+                new Partita(MANCINI, 7, FEDERICIS, 5),
+                new Partita(MANCINI, 6, ILARIMAU, 3),
+                new Partita(CATENA, 6, ILARIMAU, 2),
+                new Partita(FEDERICIS, 6, ILARIMAU, 0),
+                new Partita(CATENA, 6, FEDERICIS, 4),
+                new Partita(MANCINI, 6, CATENA, 3)
+            ]),
+            new Girone("GIRONE 5 IN CORSO", [
+                new Partita(CORINALDI, 6, ILARIMAR, 0),
+                new Partita(CORINALDI, 6, INTRAVAIA, 0),
+                new Partita(THEBOSS, 6, INTRAVAIA, 3),
+                new Partita(INTRAVAIA, 6, ILARIMAR, 1),
+                new Partita(THEBOSS, 6, ILARIMAR, 0),
+                new Partita(THEBOSS, 6, CORINALDI, 4)
+            ])
+    
+        ]
+    
+        function getCoefficienteClassifica(nIncontriVinti, giochiVinti, giochiGiocati) {
+            return Math.round(((nIncontriVinti * 10) + ((giochiVinti * 1.0) / giochiGiocati)) * 1000) / 1000
+        }
+    
+        function groupBy(xs, key) {
+    
+            return xs.reduce(function (rv, x) {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        }
+    
+        function generateClassifica(girone) {
+            let giocatori = new Map() // mappa giocatore - lista incontri
+            girone.incontri.forEach(i => {
+                giocatori[i.vincente] = giocatori[i.vincente] ? giocatori[i.vincente].concat(i) : [i]
+                giocatori[i.perdente] = giocatori[i.perdente] ? giocatori[i.perdente].concat(i) : [i]
+            })
+    
+            const risultatiGiocatori = Object.entries(giocatori)
+                .map(giocatoreIncontri => {
+                    const giocatore = giocatoreIncontri[0]
+                    const incontri = giocatoreIncontri[1]
+                    const incontriVinti = incontri.filter(i => i.vincente === giocatore)
+                    const nIncontriVinti = incontriVinti.length
+                    const giochiVinti = incontri.map(i => i.vincente === giocatore ? i.giochiVincente : i.giochiPerdente).reduce((a, b) => a + b, 0)
+                    const giochiTotali = incontri.map(i => i.giochiPerdente + i.giochiVincente).reduce((a, b) => a + b, 0)
+                    const coefficienteClassifica = getCoefficienteClassifica(nIncontriVinti, giochiVinti, giochiTotali)
+                    return new RisultatoGiocatore(giocatore, giocatoreIncontri.values, nIncontriVinti, giochiVinti, giochiTotali, coefficienteClassifica)
+                })
+    
+    
+            const giocatoriByCoefficiente = groupBy(risultatiGiocatori, "coefficienteClassifica")
+            Object.values(giocatoriByCoefficiente).forEach(rgList => {
+                if (rgList.length > 1) {
+                    rgList.forEach(rg => rg["parimerito"] = true)
+                }
+            })
+    
+            risultatiGiocatori.sort((rg1, rg2) => (rg1.coefficienteClassifica < rg2.coefficienteClassifica) ? 1 : -1)
+            let posizioneClassifica = 1
+            for (let i = 0; i < risultatiGiocatori.length; i++) {
+                const rg = risultatiGiocatori[i]
+                const verifica = (element) => element === rg.giocatore
+                risultatiGiocatori[i]["classifica"] = isRitirato.some(verifica) ? 'RIT' : posizioneClassifica
+                let rit = isRitirato.some(verifica)
+                if (risultatiGiocatori.length - 1 > i
+                    && risultatiGiocatori[i + 1].coefficienteClassifica !== rg.coefficienteClassifica
+                    && !rit) {
+                    posizioneClassifica++
+                }
+    
+            }
+            return risultatiGiocatori
+        }
+    
+        function html(elem, content, classes) {
+            const cssClass = classes ? 'class="' + classes + '"' : ''
+            return '<' + elem + ' ' + cssClass + '>' + content + '</' + elem + '>'
+        }
+    
+        function bold(content) {
+            return html('span', content, 'font-weight:bold')
+        }
+    
+        const gironiHTML = gironi
+            .map(girone => {
+                const titolo = html('h2', html('span', girone.nome))
+                const incontriSottotitolo = html('div', html('h3', 'Incontri'))
+                const classificaSottotitolo = html('div', html('h3', 'Classifica Girone ' + bold('(provvisoria)')))
+                const tableHeader = html('tr', html('th', 'Classifica') + html('th', 'Giocatore') + html('th', 'Incontri Vinti') + html('th', 'Giochi vinti/giocati'))
+    
+                const classificaGirone = html('table class="alter"', tableHeader + generateClassifica(girone)
+                    .map(rg => {
+                        const parimerito = rg["parimerito"] ? 'parimerito' : ''
+                        const classifica = rg["classifica"]
+                        let cssClassifica = "lartri"
+                        switch (classifica) {
+                            case 1:
+                                cssClassifica = "primo";
+                                break
+                            case 2:
+                                cssClassifica = "secondo";
+                                break
+                        }
+                        return html('tr', html('td', html('span', rg["classifica"] + " " + parimerito) + html('td', rg.giocatore) + html('td', rg.nIncontriVinti) + html('td', rg.giochiVinti + '/' + rg.giochiGiocati + ' (' + Math.round((rg.giochiVinti * 100.0) / rg.giochiGiocati) + '%)')), cssClassifica)
+                    })
+                    .join(''))
+                const listaIncontri = girone.incontri
+                    .map(i => html('div', html('span', i.vincente, 'evid') + '-' + i.perdente + ' : ' + i.giochiVincente + '-' + i.giochiPerdente))
+                    .join('') + html('div', '', 'spaziatore')
+                return titolo + classificaSottotitolo + classificaGirone + incontriSottotitolo + listaIncontri
+            })
+            .join('')
+    
+        const titolononeHTML = html('h1', 'Torneo Sociale <br>T. C. Cingoli 2021')
+        document.getElementById("gironi").innerHTML = titolononeHTML + gironiHTML
+    
+    </script>

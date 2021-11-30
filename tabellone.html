@@ -1,9 +1,113 @@
 <!doctype html>
 <html>
+
 <head>
 	<title>Tabellone</title>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+		h1 {
+			width: 100%;
+			font-size: 10vw;
+			display: block;
+			text-align: center;
+			background-color: #FECD03;
+			color: rgb(253, 255, 212);
+			border-radius: 10px;
+		}
+
+		h2:before {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 10px;
+			top: 100%;
+			left: 0;
+			border-radius: 5px;
+			background: #000000;
+			transition: .2s;
+		}
+
+		h2 {
+			border-radius: 50%;
+			position: relative;
+			transform: translateX(50%);
+			width: 50%;
+			margin: 2%;
+			font-size: 4vh;
+			display: inline-block;
+			text-align: center;
+		}
+
+		h3 {
+			width: 100%;
+			font-size: 3vh;
+			display: inline-block;
+			text-align: center;
+		}
+
+		table {
+			border-collapse: collapse;
+			background: rgb(249, 255, 168);
+			border-radius: 10px;
+			overflow: hidden;
+			width: 100%;
+			margin: auto;
+			position: relative;
+			font-size: 1.6em;
+		}
+
+		th {
+			background: #8096FF;
+			font-weight: bold;
+		}
+
+		.alter tr:nth-child(even) {
+			background-color: #ffecb4;
+		}
+
+		.alter tr:nth-child(odd) {
+			background-color: #fdf2d1;
+		}
+
+		tr {
+			border: none;
+		}
+
+		td,
+		th {
+			text-align: center;
+			padding: 2%;
+		}
+
+		.evid {
+			background: rgb(175, 255, 129);
+			font-weight: bold;
+		}
+
+		.primo {
+			font-weight: bold;
+			color: rgb(0, 0, 0)
+		}
+
+		.secondo {
+			font-weight: bold;
+			color: rgb(43, 43, 43)
+		}
+
+		.lartri {
+			color: rgb(68, 68, 68)
+		}
+
+		span,
+		div {
+			width: 100%;
+		}
+
+		.spaziatore {
+			padding-top: 7vh;
+		}
+
 		html,
 		body,
 		.brackets {
@@ -134,7 +238,7 @@
 
 		.brackets>div>.r5>div {
 			margin: 460px 0 0 0;
-			height: 900px;
+			height: 10px;
 		}
 
 		.brackets>div>.r6>div {
@@ -171,8 +275,8 @@
 			<div class="r1">
 				<div></div>
 				<div>
-					<div class="bracketbox"><span class="info">Q1</span><span class="teama">Virgili<span class="info">Q1</span></span><span
-							class="teamb">Catena</span></div>
+					<div class="bracketbox"><span class="info">Q1</span><span class="teama">Virgili<span
+								class="info">Q1</span></span><span class="teamb">Catena</span></div>
 				</div>
 				<div></div>
 				<div></div>
@@ -186,50 +290,101 @@
 			</div>
 			<div class="r2">
 				<div>
-					<div class="bracketbox"><span class="teama">Scattolini</span><span
-							class="teamb"></span></div>
+					<div class="bracketbox"><span class="teama">Scattolini</span><span class="teamb"></span></div>
 				</div>
 				<div>
 					<div class="bracketbox"><span class="info"></span><span class="teama">Federici G</span>
-						<span class="teamb">Federici C</span></div>
+						<span class="teamb">Federici C</span>
+					</div>
 				</div>
 				<div>
 					<div class="bracketbox"><span class="info"></span><span class="teama">Cardella</span>
-						<span class="teamb">Intravaia</span></div>
+						<span class="teamb">Intravaia</span>
+					</div>
 				</div>
 				<div>
 					<div class="bracketbox">
 						<span class="info"></span>
 						<span class="teama"></span>
 						<span class="teamb">Mancini</span>
-				</div>
+					</div>
 				</div>
 			</div>
 			<div class="r3">
 				<div>
 					<div class="bracketbox"><span class="fase">Semifinale 1</span><span class="teama"></span>
-						<span class="teamb"></span></div>
+						<span class="teamb"></span>
+					</div>
 				</div>
 				<div>
 					<div class="bracketbox"><span class="fase">Semifinale 2</span><span class="teama"></span>
-						<span class="teamb"></span></div>
+						<span class="teamb"></span>
+					</div>
 				</div>
 			</div>
 			<div class="r4">
 				<div>
 					<div class="bracketbox"><span class="fase">Finale</span>
-						<span class="teama"></span><span class="teamb"></span></div>
+						<span class="teama"></span><span class="teamb"></span>
+					</div>
 				</div>
 			</div>
 			<div class="r5">
 				<div class="final">
 					<div class="bracketbox">
-						<span class="teamc"></span></div>
+						<span class="teamc"></span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<table class="alter">
+		<tbody>
+			<tr  class="primo">
+				<th colspan=2>Venerdì 3</th>
+				<th colspan=2>Sabato 4</th>
+				<th colspan=2>Domenica 5</th>
+			</tr>
+			<tr>
+				<td class="primo">x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+			</tr>
+			<tr class="secondo">
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+			</tr>
+			<tr>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+			</tr>
+			<tr class="lartri">
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+				<td>x</td>
+			</tr>
+			<tr class="lartri">
+				<td><span>5 </span></td>
+				<td>Rossetti</td>
+				<td>1</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 
 </html>
