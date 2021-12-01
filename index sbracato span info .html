@@ -21,7 +21,19 @@
 			content: '';
 			width: 100%;
 			height: 10px;
-			top: 100%;
+			top: -0.2em;
+			left: 0;
+			border-radius: 5px;
+			background: #000000;
+			transition: .2s;
+		}
+
+		h2:after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 10px;
+			top: 1.2em;
 			left: 0;
 			border-radius: 5px;
 			background: #000000;
@@ -29,12 +41,8 @@
 		}
 
 		h2 {
-			border-radius: 50%;
 			position: relative;
-			transform: translateX(50%);
-			width: 50%;
-			margin: 2%;
-			font-size: 4vh;
+			font-size: 7vw;
 			display: inline-block;
 			text-align: center;
 		}
@@ -45,10 +53,38 @@
 			display: inline-block;
 			text-align: center;
 		}
+		nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 10px dotted;
+        }
+		.bottone {
+			height: 100%;
+			display: flex;
+			background: black;
+			border-radius: 10px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 5em;
+			text-align: center;
+			padding: 0.5em;
+			font-family: "montserrat", sans-serif;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+		}
+
+		.bottone:active {
+			transform: translate(0px, 10px);
+			box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+		}
 
 		table {
 			border-collapse: collapse;
-			background: #ffecb4;
+			background: white;
 			border-radius: 10px;
 			overflow: hidden;
 			width: 100%;
@@ -58,8 +94,9 @@
 		}
 
 		th {
-			background: #8096FF;
+			background: black;
 			font-weight: bold;
+			color: white
 		}
 
 		.alter tr:nth-child(even) {
@@ -106,6 +143,7 @@
 		span,
 		div {
 			width: 100%;
+			height: 100%;
 		}
 
 		.spaziatore {
@@ -291,7 +329,10 @@
 </head>
 
 <body>
-	<h2>Tabellone finale</h2>
+	<nav>
+		<h2 style="display: flex">Tabellone finale</h2>
+		<a class="bottone" href="gironi">Gironi</a>
+	</nav>
 	<div style="text-align: center;"><span style="font-size: 1.8em">Gli incontri si svolgeranno con la formula di due
 			set a 4 giochi con vantaggio awt e super-tiebreak a
 			10 al posto del terzo set</span></div>
@@ -400,12 +441,12 @@
 				<td rowspan="2" style="border-left: 2px solid;">14:00</td>
 				<td>Federici G </td>
 				<td rowspan="2" style="border-left: 2px solid">15:00</td>
-				<td rowspan="2"> Semif 1</td>
+				<td> Semif</td>
 			</tr>
 			<tr style="border-bottom: 2px solid">
 				<td>Catena</td>
 				<td>Federici C</td>
-				<td></td>
+				<td>1</td>
 			</tr>
 			<tr>
 				<td rowspan="2">21:30</td>
@@ -413,12 +454,12 @@
 				<td rowspan="2" style="border-left: 2px solid">15:00</td>
 				<td>Cardella</td>
 				<td rowspan="2" style="border-left: 2px solid">16:00</td>
-				<td rowspan="2"> Semif 2</td>
+				<td> Semif</td>
 			</tr>
 			<tr style="border-bottom: 2px solid">
 				<td>Bussolotto</td>
 				<td>Intravaia</td>
-				<td></td>
+				<td>2</td>
 			</tr>
 			<tr>
 				<td rowspan="2"></td>
