@@ -56,6 +56,17 @@
             display: inline-block;
             text-align: center;
         }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 10px dotted;
+        }
+
         .bottone {
 			height: 100%;
 			display: flex;
@@ -141,9 +152,9 @@
 </html>
 
 <body>
-    <div style="display: flex; align-items: center; justify-content: space-evenly;">
+    <nav>
 		<h1 style="display: flex">Gironi</h1>
-		<a class="bottone" href="index.html">Tabellone</a></div>
+		<a class="bottone" href="index.html">Tabellone</a></nav>
     <div id="gironi">
     </div>
 </body>
@@ -239,7 +250,7 @@
             new Partita(CATENA, 6, FEDERICIS, 4),
             new Partita(MANCINI, 6, CATENA, 3)
         ]),
-        new Girone("GIRONE 5 IN CORSO", [
+        new Girone("GIRONE 5", [
             new Partita(CORINALDI, 6, ILARIMAR, 0),
             new Partita(CORINALDI, 6, INTRAVAIA, 0),
             new Partita(THEBOSS, 6, INTRAVAIA, 3),
@@ -319,7 +330,7 @@
         .map(girone => {
             const titolo = html('h2', html('span', girone.nome))
             const incontriSottotitolo = html('div', html('h3', 'Incontri'))
-            const classificaSottotitolo = html('div', html('h3', 'Classifica Girone ' + bold('(provvisoria)')))
+            const classificaSottotitolo = html('div', html('h3', 'Classifica Girone'))
             const tableHeader = html('tr', html('th', 'Classifica') + html('th', 'Giocatore') + html('th', 'Incontri Vinti') + html('th', 'Giochi vinti/giocati'))
 
             const classificaGirone = html('table class="alter"', tableHeader + generateClassifica(girone)

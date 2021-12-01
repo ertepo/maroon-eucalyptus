@@ -53,7 +53,16 @@
 			display: inline-block;
 			text-align: center;
 		}
-
+		nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 10px dotted;
+        }
 		.bottone {
 			height: 100%;
 			display: flex;
@@ -320,10 +329,10 @@
 </head>
 
 <body>
-	<div style="display: flex; align-items: center; justify-content: space-evenly;">
+	<nav>
 		<h2 style="display: flex">Tabellone finale</h2>
 		<a class="bottone" href="gironi.html">Gironi</a>
-	</div>
+	</nav>
 	<div style="text-align: center;"><span style="font-size: 1.8em">Gli incontri si svolgeranno con la formula di due
 			set a 4 giochi con vantaggio awt e super-tiebreak a
 			10 al posto del terzo set</span></div>
