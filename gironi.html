@@ -304,12 +304,10 @@
         let posizioneClassifica = 1
         for (let i = 0; i < risultatiGiocatori.length; i++) {
             const rg = risultatiGiocatori[i]
-            const verifica = (element) => element === rg.giocatore
-            risultatiGiocatori[i]["classifica"] = isRitirato.some(verifica) ? 'RIT' : posizioneClassifica
-            let rit = isRitirato.some(verifica)
+            risultatiGiocatori[i]["classifica"] = isRitirato.includes(rg.giocatore) ? 'RIT' : posizioneClassifica
             if (risultatiGiocatori.length - 1 > i
                 && risultatiGiocatori[i + 1].coefficienteClassifica !== rg.coefficienteClassifica
-                && !rit) {
+                ) {
                 posizioneClassifica++
             }
 
