@@ -182,7 +182,7 @@
     const THEBOSS = "Scattolini"
 
 
-    const isRitirato = [CORINALDI, STRAMAZZOTTI]
+    const listaRitirati = [CORINALDI, STRAMAZZOTTI]
 
     class Partita {
         constructor(vincente, giochiVincente, perdente, giochiPerdente) {
@@ -304,10 +304,11 @@
         let posizioneClassifica = 1
         for (let i = 0; i < risultatiGiocatori.length; i++) {
             const rg = risultatiGiocatori[i]
-            risultatiGiocatori[i]["classifica"] = isRitirato.includes(rg.giocatore) ? 'RIT' : posizioneClassifica
+            risultatiGiocatori[i]["classifica"] = listaRitirati.includes(rg.giocatore) ? 'RIT' : posizioneClassifica
+            let rit = listaRitirati.includes(rg.giocatore)
             if (risultatiGiocatori.length - 1 > i
                 && risultatiGiocatori[i + 1].coefficienteClassifica !== rg.coefficienteClassifica
-                ) {
+                && !rit) {
                 posizioneClassifica++
             }
 
